@@ -50,9 +50,9 @@ load_dotenv(find_dotenv())
 # --------------------------------------------------------------
 
 
-llm = OpenAI()
+llm = OpenAI(temperature=0)
 
-get_all_tool_names()
+toolNames = get_all_tool_names()
 tools = load_tools(["terminal"], llm=llm)
 
 # Finally, let's initialize an agent with the tools, the language model, and the type of agent we want to use.
@@ -61,7 +61,7 @@ agent = initialize_agent(
 )
 
 # Now let's test it out!
-result = agent.run("Create an Angular project named blog-angular with routing and create a routable blog component. The blog component should have a title and a list of blog posts. Each blog post should have a title, a date, and a body.")
+result = agent.run("Create a CMS Landing page in Angular and then connect & publish it to Content Stack using contentstack cli for a Spring Break campaign. The required variables are provided in .env file.")
 print(result)
 
 
