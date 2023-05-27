@@ -4,6 +4,10 @@ from selenium.webdriver.common.by import By
 driver = webdriver.Chrome()
 driver.get('https://www.asos.com/men/summer-essentials/cat/?cid=50085')
 
+# Load more
+load_more_btn = driver.find_element(By.CSS_SELECTOR, "[data-auto-id='loadMoreProducts']")
+load_more_btn.click()
+
 titles = driver.find_elements(By.CSS_SELECTOR, 'article a div p')
 prices = driver.find_elements(By.CSS_SELECTOR, 'article a > p')
 images = driver.find_elements(By.CSS_SELECTOR, 'article a img')
